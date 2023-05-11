@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Control</title>
+
+</head>
+
+
+<body>
+   <p th:text="'ID:'+${id}+'の従業員　詳細ページ'"></p>
+
+    <table th:object="${employeedetail}"> <!-- Employeecontrollerに登録 -->
+
+        <tr><th>ID</th><td th:text="*{id}"></td></tr>
+
+        <tr><th>氏名</th><td th:text="*{name}"></td></tr>
+        <tr><th>権限</th><td th:text="*{role}"></td></tr>
+        <tr><th>登録日時</th><td th:text="*{created_at}"></td></tr>
+        <tr><th>更新日時</th><td th:text="*{updated_at}"></td></tr>
+    </table>
+
+
+
+
+    <a th:href="@{/employee/empedit}">この従業員情報を編集する</a><br>
+    <a th:href="@{/employee/emplist}">一覧に戻る</a>
+
+</body>
+</html>
