@@ -49,7 +49,7 @@ public class Employee {
     private void preRemove() {
         // 認証エンティティからuserを切り離す
         if (authentication!=null) {
-            authentication.setEmployee(null); //setUser??
+            authentication.setEmployee(null); 
         }
     }
 

@@ -15,16 +15,21 @@
         <tr><th>ID</th><td th:text="*{id}"></td></tr>
 
         <tr><th>氏名</th><td th:text="*{name}"></td></tr>
-        <tr><th>権限</th><td th:text="*{role}"></td></tr>
+        <tr><th>権限</th><td th:text="*{authentication.role}"></td></tr>
         <tr><th>登録日時</th><td th:text="*{created_at}"></td></tr>
         <tr><th>更新日時</th><td th:text="*{updated_at}"></td></tr>
     </table>
 
 
 
-
-    <a th:href="@{/employee/empedit}">この従業員情報を編集する</a><br>
+    <br>
+    <!--
+    <a th:href="@{/employee/empedit/{id}>この従業員情報を編集する</a></td>
+    -->
+    <a th:href="@{/employee/edit/{aid}(aid=${id})}">この従業員情報を編集する</a><br>
     <a th:href="@{/employee/emplist}">一覧に戻る</a>
+
+    <!-- /(id=${employee.id})}" -->
 
 </body>
 </html>

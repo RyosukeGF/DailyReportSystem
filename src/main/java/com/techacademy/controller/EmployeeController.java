@@ -59,6 +59,15 @@ public class EmployeeController {
         return "employeecontrol/empdetail";
     }
 
+    /** 編集画面を表示 */
+    @GetMapping("/edit/{id}/")
+    public String editEmployee(@PathVariable("id") Integer id, Model model) {
+        // Modelに登録
+        model.addAttribute("employeeedit", service.getEmployee(id));
+        // User更新画面に遷移
+        return "employeecontrol/empedit";
+    }
+
 
 
 
