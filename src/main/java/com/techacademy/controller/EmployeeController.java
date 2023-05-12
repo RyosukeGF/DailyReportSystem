@@ -41,13 +41,17 @@ public class EmployeeController {
         return "employeecontrol/empregister";
     }
 
-
-    /** 新規登録を行なう
-    @Transactional
-    public Employee saveEmployee(Employee employee) {
-        return mployeeRepository.save(employee);
+    /** 登録処理 */
+    @PostMapping("/register")
+    public String postRegister(Employee employee) {
+        // User登録
+        service.saveEmployee(employee);
+        // 一覧画面にリダイレクト
+        return "redirect:/employee/emplist";
     }
-    */
+
+
+
 
 
     /** 詳細画面を表示 */
@@ -60,7 +64,7 @@ public class EmployeeController {
     }
 
     /** 編集画面を表示 */
-    @GetMapping("/edit/{id}/")
+    @GetMapping("/edit/{id}")
     public String editEmployee(@PathVariable("id") Integer id, Model model) {
         // Modelに登録
         model.addAttribute("employeeedit", service.getEmployee(id));

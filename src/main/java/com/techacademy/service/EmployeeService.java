@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.techacademy.entity.Employee;
 import com.techacademy.repository.EmployeeRepository;
@@ -24,10 +25,17 @@ public class EmployeeService {
         return employeeRepository.findAll();
     }
 
-    /** Employeeを1件検索して返す */
+    //Employeeを1件検索して返す
     public Employee getEmployee(Integer id) {
         return employeeRepository.findById(id).get();
     }
+
+    // 新規登録を行なう
+    @Transactional
+    public Employee saveEmployee(Employee employee) {
+        return employeeRepository.save(employee);
+    }
+
 
 
 }
