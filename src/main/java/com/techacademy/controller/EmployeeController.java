@@ -52,8 +52,6 @@ public class EmployeeController {
 
 
 
-
-
     /** 詳細画面を表示 */
     @GetMapping("/detail/{id}/")
     public String getEmployee(@PathVariable("id") Integer id, Model model) {

@@ -12,7 +12,7 @@
 
     <table th:object="${employeedetail}"> <!-- Employeecontrollerに登録 -->
 
-        <tr><th>ID</th><td th:text="*{id}"></td></tr>
+        <tr><th>社員番号</th><td th:text="*{id}"></td></tr>
 
         <tr><th>氏名</th><td th:text="*{name}"></td></tr>
         <tr><th>権限</th><td th:text="*{authentication.role}"></td></tr>
