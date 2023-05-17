@@ -1,6 +1,7 @@
 package com.techacademy.service;
 
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,13 @@ public class EmployeeService {
     // 新規登録を行なう
     @Transactional
     public Employee saveEmployee(Employee employee) {
+
+        employee.setDelete_flag(0);
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        employee.setCreated_at(timestamp);
+        employee.setUpdated_at(timestamp);
+        employee.getAuthentication().setEmployee(employee);
+
         return employeeRepository.save(employee);
     }
 
